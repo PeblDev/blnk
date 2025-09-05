@@ -16,9 +16,8 @@ RUN apt-get update && apt-get install -y wget gnupg2 lsb-release && \
     rm -rf /var/lib/apt/lists/*
 
 COPY --from=build-env /blnk /usr/local/bin/blnk
-COPY blnk.json /app/blnk.json
-ENV BLNK_CONFIG_PATH=/app/blnk.json
-
+COPY blnk.json /blnk.json
+ENV BLNK_CONFIG_PATH=/blnk.json
 
 RUN chmod +x /usr/local/bin/blnk
 
